@@ -1,0 +1,44 @@
+!WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW2D variables
+real,dimension(N,NY)::HG,FG,HXG,HYG,HZG,FXG,FYG,FZG,FX,FY,FZ,RFG,RHG
+real,dimension(N,NY)::BK,D2HG,HXY2,W1G,W2G,WNG
+real,dimension(-M:M,-MY:MY)::HBR,FBR,PF,HX2,HY2
+real,dimension(-M:M,-MY:MY)::HF,FF,HF2,FF2,HXF,HYF,HXXF,HYYF,     &
+                             RH,RF,FXF,FYF,FZF
+real,dimension(M,-MY:MY)::SP2,AMPL,EBEF,EBEF0,EAFT,EKF
+!WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWPhysics
+real,dimension(M,-MY:MY)::RNNLI,RNTAI,RBREA,RINPU,SPECH,SPEHX,    &
+                          SPHXX,RTOTA,SPFZF,SPWNF
+!WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW3D variables
+real,dimension(-M:M,-MY:MY,0:LW)::SF,EAKZ
+real,dimension(-M:M,-MY:MY,0:LW-1)::R
+real,dimension(N,NY,0:LW)::WIG
+!WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWGrid
+real,dimension(N)::XC,X
+real,dimension(NY)::Y
+real,dimension(0:LW)::ZI
+real,dimension(LW)::ZM,DZM,A1,A2,A3,A4,A5,A6
+real,dimension(LW-1)::DZI
+real,dimension(-M:M,-MY:MY)::AK,AK2,OM,SHEI,SHE
+real,dimension(0:19)::RINT
+!WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWCommons
+common/MAIN/XC,X,Y,HG,FG,HXG,HYG,HZG,FXG,FYG,FZG,HF,FF,HF2,FF2,   &
+            HXF,HYF,FXF,FYF,FZF,RFG,RHG,D2HG,HXY2,HXXG,HYYG,      & 
+            ZI,ZM,DZM,DZI,AK,AK2,OM,                              &
+		    A1,A2,A3,A4,A5,A6,                                    &
+		    SF,EAKZ,R,WIG,                                        &
+		    SHEI,SHE,SP2,AMPL,WNG,                                &
+		    ZXGI,ZYGI,ZZGI,ZXGM,ZYGM,ZZGM,FX,FY,FZ,RF,RH,W1G,W2G
+common/BREAK/BK,HBR,FBR,PF
+common/GOVERN/T,ENCR,E0,DX,DX2,DY,DY2,EP,EK,ERR,D,                &
+              ERRLIM,HS,HW,RNN,RNT,RBR,RIN,RTOT,COR,              &
+			  CPW,WIND,RATET,RATE,EJ,Z0,Z1,Z2,Z3,Z4,Z5,Z6,        &
+              ETO,DCR,DEPK,ECOR,CORF,AD
+common/GOVERNI/NVAR,NST,NSTI,ITL,NBR,NNS,NPHYS
+common/PHYSIC/ RNNLI,RNTAI,RBREA,RINPU,RTOTA,EBEF,EAFT,SPECH,     &
+			   SPEHX,SPFZF,SPWNF,RINT
+!**************************************************************FFT
+integer,dimension(0:NS+1)::IP
+integer,dimension(2)::IJS
+real,dimension(0:N*3/2-1)::WK
+common/IFFT/IP,IJS
+common/RFFT/WK

@@ -1,0 +1,31 @@
+real,parameter::PI=3.1415926535897932D0,PI2=2.*PI
+integer,parameter::M=128,MY=64,N=4*M,NY=4*MY,NS=100
+integer,parameter::NBOT=56,NTOP=99
+integer,parameter::NSTF=1000
+real,parameter::RAW=1.3e-3
+real,parameter::XAP=0.41
+integer,parameter::LW=20
+real,parameter::GAM=1.20
+real,parameter::DT=.01,DT2=DT/2.
+real,parameter::DT_FIELDS=0.           !any fields
+real,parameter::DT_SURF=10.            !Surface
+real,parameter::DT_OUTP=1.             !sampling period
+real,parameter::DT_DISP=.1             !disp. rel. period   
+real,parameter::DT_VELO=0              !write VELO
+real,parameter::ISTAB=1                !Stability contr.
+real,parameter::ICONS=0                !conservation control
+real,parameter::DT_PHY=10.             !write physics
+integer,parameter::kp=20               !Peak wavenumber
+integer,parameter::JPM=1,NW=3*M/4,JP=8 !JONSWAP spectrum
+real,parameter::OMPN=1.,FACTOR=1.      !OMPN=U/Cp
+integer,parameter::JSTOX=0             !Stokes initialization
+real,parameter::ERRLI=1.e-6            !acc. for Poisson
+integer,parameter::MAXIT=20            !max iteraions
+integer,parameter::ITAIL=1             !fag for tail dissipation
+real,parameter::DM=0.5,CM=.01          !Tail dissipation
+integer,parameter::IBREAK=1            !flag for breaking
+real,parameter::HXYCR=40.              !critical curvilinearity
+real,parameter::COOL=.005              !power of breaking
+integer,parameter::INPUT=1             !flag for wind input
+real,parameter::UCP=4                  !U/Cp
+real,parameter::D0=.00442,D1=.975,D2=-30. !AD parameters
