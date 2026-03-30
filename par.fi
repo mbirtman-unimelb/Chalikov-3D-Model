@@ -1,0 +1,34 @@
+real,parameter::PI=3.1415926535897932D0,PI2=2.*PI
+integer,parameter::M=256,MY=128,N=4*M,NY=4*MY,NS=100              !Defines Fourier Space (M,MY) and Physical (N,NY)
+integer,parameter::NBOT=0,NTOP=99  !Changed from 100              !Determines model start and files
+integer,parameter::NSTF=500                                      !Part of determination of how much data in each file
+real,parameter::RAW=1.3e-3
+real,parameter::XAP=0.41
+integer,parameter::LW=20                                          !Number of vertical levels selected
+real,parameter::GAM=1.20                                          !Stretched Vertical Grid Coefficent
+real,parameter::DT=0.005,DT2=DT/2.                                !Timestep (DT) and 1/2 (DT/2)
+real,parameter::DT_FIELDS=0.                                      !any fields
+real,parameter::DT_SURF=DT                                       !Surface
+real,parameter::DT_OUTP=DT                                       !sampling period
+real,parameter::DT_DISP=0.05                                      !disp. rel. period   
+real,parameter::DT_VELO=DT                                       !write VELO
+real,parameter::ISTAB=1                                           !Stability contr.
+real,parameter::ICONS=0                                           !conservation control
+real,parameter::DT_PHY=DT                                        !write physics
+integer,parameter::kp=39                                          !Peak wavenumber
+integer,parameter::JPM=1,NW=3*M/4,JP=8                           !JONSWAP spectrum JP DETERMINE COS^JP(THETA) DIRECTIONAL SPREADING
+real,parameter::OMPN=4.,FACTOR=1.                                 !OMPN=U/Cp             
+real,parameter::AI=0.008                                           !Defines initial alpha value for JONSWAP
+real,parameter::GAMMA=5.0                                         !Gamma term for JONSWAP
+real,parameter::HSLP=0.0342                                       !Scaling factor parameter in JONSWAP
+integer,parameter::JSTOX=0                                        !Stokes initialization
+real,parameter::ERRLI=1.e-6                                       !acc. for Poisson
+integer,parameter::MAXIT=20                                       !max iteraions
+integer,parameter::ITAIL=1                                        !flag for tail dissipation
+real,parameter::DM=0.5,CM=.01                                     !Tail dissipation
+integer,parameter::IBREAK=1                                       !flag for breaking
+real,parameter::HXYCR=70.                                         !critical curvilinearity
+real,parameter::COOL=.005                                         !power of breaking
+integer,parameter::INPUT=0                                        !flag for wind input
+real,parameter::UCP=4                                             !U/Cp !USED WHEN NOT USING COS^JP(THETA) SPREADING
+real,parameter::D0=.00442,D1=.975,D2=-30.                         !AD parameters
