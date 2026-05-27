@@ -1,0 +1,88 @@
+# 3D Fully Nonlinear Wave Model
+
+A numerical model for long-term simulations of 3D potential fully nonlinear 
+periodic gravity waves. The scheme is based on a surface-following nonorthogonal 
+curvilinear coordinate system and uses Fourier transform methods, second-order 
+accuracy approximation of vertical derivatives on a stretched vertical grid, and 
+fourth-order Runge–Kutta time stepping. The model is designed for investigation 
+of nonlinear 2D surface waves, generation of extreme waves, and direct 
+calculations of nonlinear interactions.
+
+Originally described in [Chalikov et al., 2014]. Attached in the same folder.
+
+---
+
+## Requirements
+
+- Intel Fortran compiler (`ifort`)
+- A system capable of running `make`
+- Can be run on a standard PC (single CPU) or a SLURM-based HPC system
+
+---
+
+## Repository Contents
+
+| File | Description |
+|------|-------------|
+| `wave3_new.f90` | Main model source code |
+| `fft4f2d.f90` | FFT routines |
+| `par.fi` | User-editable parameter file |
+| `com.fi` | Variable definitions — do not edit |
+| `makefile` | Makefile for compilation |
+| `3D_Spartan_lt_Ensemble_mlb.slurm` | Example SLURM submission script |
+
+---
+
+## Configuration
+
+Before compiling, edit `par.fi` to set your desired model parameters. 
+`com.fi` contains internal variable definitions and should not be modified.
+
+Ensure the `Data/` directory exists before running the model:
+
+```bash
+mkdir -p Data
+```
+
+---
+
+## Compiling
+
+To compile the model, run:
+
+```bash
+make -f makefile
+chmod +x wave3_new
+```
+
+---
+
+## Running
+
+### On a local PC:
+```bash
+./wave3_new
+```
+
+### On a SLURM-based HPC system:
+An example SLURM submission script is provided 
+(`3D_Spartan_lt_Ensemble_mlb.slurm`). This script was written for the 
+University of Melbourne Spartan HPC cluster but can be adapted for other 
+systems. To submit:
+
+```bash
+sbatch 3D_Spartan_lt_Ensemble_mlb.slurm
+```
+
+---
+
+## Output
+
+Model output files are saved to the `Data/` directory.
+
+---
+
+## License
+
+This project is licensed under the MIT License — see the `LICENSE` file 
+for details.
